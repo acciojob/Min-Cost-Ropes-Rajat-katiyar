@@ -1,30 +1,23 @@
-function mincost(arr)
-{ 
-//write your code here
-// return the min cost
-	if(arr.length === 1) return 0;
+function mincost(arr) {  
+    if (arr.length <= 1) return 0;  
 
-	cost heap = arr.slice().sort((a,b) => a-b);
+    arr.sort((a, b) => a - b);  
 
-	let totalCost = 0;
+    let totalCost = 0;  
 
-	while(heap.length > 1) {
-		const rope1 = heap.shift();
-		const rope2 = heap.shift();
+    while (arr.length > 1) {  
+        const first = arr.shift();   
+        const second = arr.shift(); 
 
-		const cost = rope1 +rope2;
-		totalCost += cost;
+        const cost = first + second;  
+        totalCost += cost;  
 
-		let insertIndex = heap.findIndex(x => x > cosrt);
-		if(insertIndex === -1) {
-			heap.push(cost);
-		}
-		else {
-			heap.slice(insertIndex, 0, cost);
-		}
-	}
-	return totalCost;
-  
-}
+        arr.push(cost);  
+        
+        arr.sort((a, b) => a - b);  
+    }  
 
-module.exports=mincost;
+    return totalCost;  
+}  
+
+module.exports = mincost;
